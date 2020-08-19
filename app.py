@@ -8,7 +8,6 @@ ATTENTION : This Script Is Only For Educational Purpose.
 '''
 import requests
 from bs4 import BeautifulSoup
-import json
 from flask import Flask , request , jsonify , redirect
 
 
@@ -27,8 +26,7 @@ def search_yts():
 	query = request.args.get('q')
 	results = []
 	url = f'https://yts.mx/ajax/search?query={query}'
-	data = requests.get(url).text
-	response = json.loads(data)
+	response = requests.get(url).json()
 	try:
 		for movie in response['data']:
 			try:
@@ -67,10 +65,9 @@ def search_yts():
 	except:
 		results = {'status': "Error Loading API",'possible_error':{'web_block':'Website Has Been Blocked','name_error':'Please Check Movie Name'}}
 		results = sorted(results, key=lambda entry: entry['rating'],reverse=True)
-	dictionary = {"data" : crew}
-	print(results)
-	return dictionary
+	return jsonify(data=results)
 	
 if __name__ == '__main__':
-    app.debug = True
-    app.run(host='127.0.0.1', port=5000, use_reloader=True, threaded=True)
+    app.run()
+    #app.debug = True
+    #app.run(host='127.0.0.1', port=5000, use_reloader=True, threaded=True)
