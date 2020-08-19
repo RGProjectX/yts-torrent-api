@@ -27,7 +27,8 @@ def search_yts():
 	query = request.args.get('q')
 	results = []
 	url = f'https://yts.mx/ajax/search?query={query}'
-	response = requests.get(url).json()
+	data = requests.get(url)
+	response = data.json()
 	try:
 		for movie in response['data']:
 			try:
