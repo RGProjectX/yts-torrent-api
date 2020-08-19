@@ -1,0 +1,13 @@
+{
+  "name": "YTS/Yify Torrent API",
+  "description": "Unofficial API of YTS/Yify Movies.",
+  "keywords": [
+    "flask",
+    "python",
+    "yts",
+    "yify",
+    "movies",
+    "1080p"
+  ],
+  "repository": "https://github.com/RGProjectX/yts-torrent-api"
+}
