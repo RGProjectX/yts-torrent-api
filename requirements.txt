@@ -1,5 +1,4 @@
 Flask
-json
 gunicorn
 requests
 bs4
