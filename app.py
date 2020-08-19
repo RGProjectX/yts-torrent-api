@@ -65,8 +65,10 @@ def search_yts():
 	except:
 		results = {'status': "Error Loading API",'possible_error':{'web_block':'Website Has Been Blocked','name_error':'Please Check Movie Name'}}
 		results = sorted(results, key=lambda entry: entry['rating'],reverse=True)
-	return jsonify(data=results)
+	dictionary = {"data" : results}
+
+	return dictionary
 	
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', port=5000, use_reloader=True, threaded=True)
+    app.run(host='127.0.0.1', port=5000, use_reloader=True, threaded=True)
