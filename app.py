@@ -65,7 +65,7 @@ def search_yts():
 	except:
 		results = {'status': "Error Loading API",'possible_error':{'web_block':'Website Has Been Blocked','name_error':'Please Check Movie Name'}}
 		results = sorted(results, key=lambda entry: entry['rating'],reverse=True)
-	dictionary = {"data" : results}
+	dictionary = {"data" : crew}
 
 	return dictionary
 	
